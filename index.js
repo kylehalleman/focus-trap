@@ -249,6 +249,9 @@ function focusTrap(element, userOptions) {
     if (container.contains(e.target) || e.target instanceof Document) {
       return;
     }
+    if (config.allowOutsideFocus && config.allowOutsideFocus(e)) {
+      return;
+    }
     e.stopImmediatePropagation();
     tryFocus(state.mostRecentlyFocusedNode || getInitialFocusNode());
   }
@@ -306,7 +309,7 @@ function focusTrap(element, userOptions) {
       tryFocus(getInitialFocusNode());
       return;
     }
-    node.focus({preventScroll: userOptions.preventScroll});
+    node.focus({ preventScroll: userOptions.preventScroll });
     state.mostRecentlyFocusedNode = node;
     if (isSelectableInput(node)) {
       node.select();

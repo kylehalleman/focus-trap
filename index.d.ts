@@ -62,6 +62,8 @@ declare module "focus-trap" {
     clickOutsideDeactivates?: boolean;
 
     allowOutsideClick?: (event: MouseEvent) => boolean;
+
+    allowOutsideFocus?: (event: FocusEvent) => boolean;
   }
 
   type ActivateOptions = Pick<Options, "onActivate">;

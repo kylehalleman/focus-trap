@@ -15,7 +15,7 @@
     "build": "npm run build-dev && npm run minify",
     "start": "budo demo/js/index.js:demo-bundle.js --dir demo --live",
     "test": "npm run lint",
-    "prepublishOnly": "npm run build"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
